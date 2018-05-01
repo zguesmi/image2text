@@ -6,7 +6,6 @@ except ImportError:
     from PIL import Image
 
 
-
 class OCR:
 
     LANGUAGES = {
@@ -25,7 +24,8 @@ class OCR:
     }
 
     def _preprocess(self, image, method):
-        ''' load image with opencv, convert it to grayscale and apply preprocessing '''
+        
+        ''' convert image to grayscale and apply preprocessing '''
         
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
@@ -36,11 +36,15 @@ class OCR:
             return cv2.medianBlur(image, 3)
 
     def _matchLanguage(self, lang):
-        return self.LANGUAGES[lang]
 
-    def imageToString(self, image, preprocess, lang):
+        try:
+            return self.LANGUAGES[lang]
+        except Exception:
+            sys.exit('Error: unsupported language "{}"'.format(lang))
 
-        image = self._preprocess(image=image, method=preprocess)
+    def imageToString(self, imagePath, preprocess, lang):
+
+        image = self._preprocess(image=cv2.imread(imagePath), method=preprocess)
 
         try:
             return pytesseract.image_to_string(image, lang=self._matchLanguage(lang))
@@ -53,6 +57,7 @@ class App:
     TEXT_PATH = './out.txt'
 
     def __init__(self):
+
         self.parseArgs()
         if not os.path.isfile(self.args['image']):
             sys.exit('No such file: {}'.format(self.args['image']))
@@ -69,13 +74,15 @@ class App:
         self.args = vars(argParser.parse_args())
 
     def extractText(self):
+        
         self.text = OCR().imageToString(
-            image = cv2.imread(self.args['image']),
+            imagePath = self.args['image'],
             preprocess = self.args['preprocess'],
             lang = self.args['language']
         )
 
     def saveText(self):
+
         try:
             file = open(self.TEXT_PATH, 'w')
             file.write(self.text)
@@ -88,7 +95,6 @@ class App:
 
         self.extractText()
         self.saveText()
-        print(self.text)
 
 if __name__ == '__main__':
     App().main()
