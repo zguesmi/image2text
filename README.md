@@ -17,17 +17,28 @@ This dapp applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) on
 English (en), Spanish (es), Frensh (fr), Arabic (ar), German (de), Chinese simple (zh), Italian (it), Japanese (ja), Portuguese (pt), Russian (ru), Turkish (tr), Korean (ko).
 
 ## Dependencies
-python3  
+[python3](https://www.python.org/)  
 [tesseract-ocr](https://github.com/tesseract-ocr/tesseract)  
 [opencv](https://opencv.org/)
 
 ## Docker installation
-For easier installation check the [dockerfile](./Dockerfile)
-    # cd to the dapp directory & build the image
+Install [docker](https://docs.docker.com/install/)
+
+    $ docker run -v .:/app ziedguesmi/ocr -i path/to/image -l en -p thresh
+
+or
+
+    # clone the dapp
+    $ git clone https://github.com/Zied-Guesmi/ocr-dapp.git
+
+    # build the docker image
+    $ cd ocr-dapp/
     $ docker build -t ocr-dapp .
 
     # run the docker container
     $ docker run -v .:/app/ ocr-dapp -i path/to/image -l en -p thresh
+
+    $ cat out.txt
 
 ## Native installation
 Install system dependencies:
@@ -52,5 +63,6 @@ Install system dependencies:
         
 Install python depedencies:
 
-    $ cd apps/
+    $ git clone https://github.com/Zied-Guesmi/ocr-dapp.git
+    $ cd ocr-dapp/app/
     $ pip3 install -r requirements.txt
