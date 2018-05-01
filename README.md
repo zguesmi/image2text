@@ -22,7 +22,8 @@ English (en), Spanish (es), Frensh (fr), Arabic (ar), German (de), Chinese simpl
 [opencv](https://opencv.org/)
 
 ## Docker installation
-Install [docker](https://docs.docker.com/install/)
+Install [docker](https://docs.docker.com/install/)  
+Run the ocr container
 
     $ docker run -v .:/app/ ziedguesmi/ocr -i path/to/image -l en -p thresh
     $ cat ./out.txt
