@@ -1,0 +1,19 @@
+{
+  "name": "ocr-dapp",
+  "version": "1.0.0",
+  "description": "This dapp applies OCR on a given image and extracts text from it",
+  "main": "iexec.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zied-Guesmi/ocr-dapp.git"
+  },
+  "author": {
+    "name": "Zied Guesmi"
+  },
+  "license": "",
+  "homepage": "https://github.com/Zied-Guesmi/ocr-dapp.git",
+  "logo": "logo.png",
+  "dependencies": {
+    "iexec-oracle-contract": "1.1.7"
+  }
+}
