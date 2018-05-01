@@ -23,6 +23,11 @@ python3
 
 ## Docker installation
 For easier installation check the [dockerfile](./Dockerfile)
+    # cd to the dapp directory & build the image
+    $ docker build -t ocr-dapp .
+
+    # run the docker container
+    $ docker run -v .:/app/ ocr-dapp -i path/to/image -l en -p thresh
 
 ## Native installation
 Install system dependencies:
