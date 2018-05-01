@@ -24,7 +24,8 @@ English (en), Spanish (es), Frensh (fr), Arabic (ar), German (de), Chinese simpl
 ## Docker installation
 Install [docker](https://docs.docker.com/install/)
 
-    $ docker run -v .:/app ziedguesmi/ocr -i path/to/image -l en -p thresh
+    $ docker run -v .:/app/ ziedguesmi/ocr -i path/to/image -l en -p thresh
+    $ cat ./out.txt
 
 or
 
@@ -38,7 +39,7 @@ or
     # run the docker container
     $ docker run -v .:/app/ ocr-dapp -i path/to/image -l en -p thresh
 
-    $ cat out.txt
+    $ cat ./out.txt
 
 ## Native installation
 Install system dependencies:
