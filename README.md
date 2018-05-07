@@ -24,7 +24,7 @@ English (en), Spanish (es), Frensh (fr), Arabic (ar), German (de), Chinese simpl
 ## Docker installation
 Install [docker](https://docs.docker.com/install/)
 
-    $ docker run -v .:/app/ ziedguesmi/ocr -i path/to/image -l en -p thresh
+    $ docker run -v $(pwd):/app/ ziedguesmi/ocr -i path/to/image -l en -p thresh
     $ cat ./out.txt
 
 or
@@ -41,7 +41,7 @@ or
 
     $ cat ./out.txt
 
-## Native installation
+## Installation
 Install system dependencies:
 
     $ apt-get update && apt-get install -y \

@@ -4,6 +4,7 @@ LABEL maintainer="Zied Guesmi <guesmy.zied@gmail.com>"
 
 RUN apt-get update && apt-get install -y \
         libtesseract-dev \
+        libsm6 \
         python3 \
         python3-pip \
         tesseract-ocr \
@@ -19,20 +20,15 @@ RUN apt-get update && apt-get install -y \
         tesseract-ocr-rus \
         tesseract-ocr-tur \
         tesseract-ocr-kor \
-        # python3-dev \     
-        # libgtk2.0-bin \
-        # libsm6 \
-        # libxext6 \
-        # libsm6 \
-        # libxext6 \
         && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-COPY ./app/ /app/
+COPY ./app /ocr
+RUN mkdir /iexec
 
-WORKDIR /app
+WORKDIR /ocr
 
 RUN pip3 install -r requirements.txt
 
-ENTRYPOINT ['python3', 'ocr.py']
+ENTRYPOINT [ '/usr/bin/python3 ocr.py -h' ]

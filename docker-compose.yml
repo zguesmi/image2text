@@ -3,4 +3,9 @@ version: '3'
 services:  
   ocr-dapp:
     build: '.'
-    image: ocr-dapp
+    image: ziedguesmi/ocr
+    command: -h
+    volumes:
+      - /Users/zied/Projects/Dapps/ocr-dapp/res/:/iexec
+    # tty: true
+    entrypoint: bash
