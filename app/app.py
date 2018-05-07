@@ -9,7 +9,7 @@ from ocr import OCR
 
 class App:
 
-    DATADIR = 'iexec/'
+    DATADIR = '/iexec/'
     CONFIG_FILE = DATADIR + 'config.txt'
     IN = DATADIR + 'in/'
     OUT = DATADIR + 'out/'

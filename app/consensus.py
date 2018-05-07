@@ -4,9 +4,9 @@ import os, sys, hashlib
 class Consensus:
 
 
-    IEXEC = 'iexec/'
+    IEXEC = '/iexec/'
     DATADIR = IEXEC + 'out/'
-    CONSENSUS_FILE = IEXEC + 'concensus.iexec'
+    CONSENSUS_FILE = IEXEC + 'consensus.iexec'
 
 
     def fullPath(self, filename):

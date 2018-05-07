@@ -4,8 +4,6 @@ services:
   ocr-dapp:
     build: '.'
     image: ziedguesmi/ocr
-    command: -h
     volumes:
-      - /Users/zied/Projects/Dapps/ocr-dapp/res/:/iexec
-    # tty: true
-    entrypoint: bash
+      - /Users/zied/Projects/Dapps/ocr-dapp/iexec/:/iexec
+    command: python3 app.py

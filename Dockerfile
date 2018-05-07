@@ -28,7 +28,4 @@ COPY ./app /ocr
 RUN mkdir /iexec
 
 WORKDIR /ocr
-
 RUN pip3 install -r requirements.txt
-
-ENTRYPOINT [ '/usr/bin/python3 ocr.py -h' ]
