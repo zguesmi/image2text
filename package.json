@@ -11,7 +11,7 @@
     "name": "Zied Guesmi"
   },
   "license": "",
-  "homepage": "https://github.com/Zied-Guesmi/ocr-dapp.git",
+  "homepage": "https://zied-guesmi.github.io/ocr-dapp/",
   "logo": "logo.png",
   "dependencies": {
     "iexec-oracle-contract": "1.1.7"
