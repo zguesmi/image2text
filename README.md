@@ -1,20 +1,26 @@
 # OCR-Dapp
 
-![dapp logo](./logo.png)
+![dapp logo](./images/logo.png)
 
 
 ## Description
-This dapp applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) on a given image and extracts text from it.  
+This dapp applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) on images and extracts text from them.
 
 ## Usage
-    # Help
-    $ python3 ocr.py -h
+    # 
+    $
 
-    # Apply threshold preprocessing and extract text
-    $ python3 ocr.py -i path/to/image -l en -p thresh 
+    # 
+    $
+
+![screenshot](./images/ScreenShot1.png)
 
 ## Supported languages
 English (en), Spanish (es), Frensh (fr), Arabic (ar), German (de), Chinese simple (zh), Italian (it), Japanese (ja), Portuguese (pt), Russian (ru), Turkish (tr), Korean (ko).
+
+## Supported image types
+Tested extensions: jpeg, bmp, png  
+Those extensions were not tested so they may not work properly: pbm, pgm, ppm, tiff, rast, xbm  
 
 ## Dependencies
 [python3](https://www.python.org/)  
@@ -22,10 +28,14 @@ English (en), Spanish (es), Frensh (fr), Arabic (ar), German (de), Chinese simpl
 [opencv](https://opencv.org/)
 
 ## Docker installation
+
 Install [docker](https://docs.docker.com/install/)
 
-    $ docker run -v $(pwd):/app/ ziedguesmi/ocr -i path/to/image -l en -p thresh
-    $ cat ./out.txt
+    $ docker run -v absolute/path/to/images/dir:/iexec/ ziedguesmi/ocr python app.py
+
+    $ ______ in/
+        |___ out/
+        |___ input.config
 
 or
 
@@ -37,9 +47,9 @@ or
     $ docker build -t ocr-dapp .
 
     # run the docker container
-    $ docker run -v .:/app/ ocr-dapp -i path/to/image -l en -p thresh
+    $ docker run -v abs/path/to/images/dir:/iexec/ ocr-dapp python3 app.py
 
-    $ cat ./out.txt
+    $ tree
 
 ## Installation
 Install system dependencies:

@@ -1,16 +1,16 @@
-import os, sys, hashlib
+import os, sys, hashlib, yaml
 
 
 class Consensus:
 
+    def __init__(self):
 
-    IEXEC = '/iexec/'
-    DATADIR = IEXEC + 'out/'
-    CONSENSUS_FILE = IEXEC + 'consensus.iexec'
+        yml = yaml.load(open('app-config.yml'))
+        self._out = '{}/{}/'.format( yml['datadir'], yml['output-dir'] )
+        self._consensusFile = '{}/{}'.format(yml['datadir'], yml['consensus-file'])
 
 
-    def fullPath(self, filename):
-        return '{}{}'.format(self.DATADIR, filename)
+    def fullPath(self, filename): return '{}{}'.format(self._out, filename)
 
 
     def create(self):
@@ -18,19 +18,19 @@ class Consensus:
         md5 = hashlib.md5()
 
         try:
-            consensusFile = open(self.CONSENSUS_FILE, 'w+')
+            consensus = open(self._consensusFile, 'w+')
         except Exception:
             sys.exit('can not create consensus file')
 
-        for _file in os.listdir(self.DATADIR):
+        for _file in os.listdir(self._out):
+            
             path = self.fullPath(_file)
-
             try:
                 with open(path, 'rb') as f:
                     buffer = f.read()
                     md5.update(buffer)
-                consensusFile.write('{}\n'.format(md5.hexdigest()))
-            except Exception as e:
+                consensus.write('{}\n'.format(md5.hexdigest()))
+            except Exception:
                 sys.exit('can not hash file {}'.format(path))
             
             

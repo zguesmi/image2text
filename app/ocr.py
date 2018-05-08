@@ -1,5 +1,5 @@
 import pytesseract, cv2
-import exceptions as x
+import exceptions as exc
 
 
 
@@ -34,7 +34,7 @@ class OCR:
         try:
             return self.LANGUAGES[lang]
         except KeyError:
-            raise x.UnsupportedLanguageError(lang)
+            raise exc.UnsupportedLanguageError(lang)
 
 
     def imageToString(self, path, lang):
@@ -43,8 +43,8 @@ class OCR:
 
         try:
             return pytesseract.image_to_string(image, lang=self._matchLanguage(lang)).encode()
-        except x.UnsupportedLanguageError:
+        except exc.UnsupportedLanguageError:
             raise
         else:
-            raise x.CanNotExtractTextError()
+            raise exc.CanNotExtractTextError()
 

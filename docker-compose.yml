@@ -5,5 +5,5 @@ services:
     build: '.'
     image: ziedguesmi/ocr
     volumes:
-      - /Users/zied/Projects/Dapps/ocr-dapp/iexec/:/iexec
+      - $(pwd)/:/iexec
     command: python3 app.py
