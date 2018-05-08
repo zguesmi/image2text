@@ -49,10 +49,10 @@ Prepare your datadir folder and grab the image from dockerhub
 Or you can build the image from dockerfile
 
     # clone the dapp
-    $ git clone https://github.com/Zied-Guesmi/ocr-dapp.git
+    $ git clone https://github.com/Zied-Guesmi/ocr-dapp.git && cd ocr-dapp/ 
 
     # build docker image
-    $ cd ocr-dapp/ && docker build -t ocr-dapp .
+    $ docker build -t ocr-dapp .
 
     # run the docker container
     $ docker run -v path/to/images/dir:/iexec/ ocr-dapp python3 app.py
