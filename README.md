@@ -43,6 +43,7 @@ Those extensions were not tested so they may not work properly: **pbm**, **pgm**
 Install [docker](https://docs.docker.com/install/)
 
 Prepare your datadir folder and grab the image from dockerhub
+
     $ docker run -v path/to/images/dir:/iexec/ ziedguesmi/ocr python app.py
 
 Or you can build the image from dockerfile
@@ -55,7 +56,7 @@ Or you can build the image from dockerfile
 
     # run the docker container
     $ docker run -v path/to/images/dir:/iexec/ ocr-dapp python3 app.py
-    
+
 
 ## Installation
 Install system dependencies:
