@@ -6,7 +6,7 @@
 ## Description
 This dapp applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) on images and extracts text from them.  
 
-<img src="./images/img.png" width="420" height="500"> <img src="./images/text.png" width="420">
+<img src="./images/img.png" width="420" height="400"> <img src="./images/text.png" width="420">
 
 
 ## Usage
