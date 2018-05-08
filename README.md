@@ -17,7 +17,7 @@ file should respect the ```<imagename>:<lang>``` format.
 
 Change datadir name in app-config.yml to the name of your folder (DATADIR for our example) and run the script.
 
-    # python3 app.py
+    $ python3 app.py
 
 You shoud find your text files in the ```DATADIR/out/``` folder
 
@@ -51,10 +51,10 @@ Or you can build the image from dockerfile
     # clone the dapp
     $ git clone https://github.com/Zied-Guesmi/ocr-dapp.git && cd ocr-dapp/ 
 
-    # build docker image
+    # build the docker image
     $ docker build -t ocr-dapp .
 
-    # run the docker container
+    # run the container
     $ docker run -v path/to/images/dir:/iexec/ ocr-dapp python3 app.py
 
 
