@@ -11,7 +11,7 @@ This dapp applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) on
 Put your images in a directory (we'll call it DATADIR) and add your input.config file to define language for each image. Your '''input.config'''
 file should respect this format: '''<imagename>:<lang>'''
 
-![screenshot](./images/ScreenShot-1.png)
+![screenshot](./images/screenShot-1.png)
 
 Change datadir name in app-config.yml to the name of your folder (DATADIR for our example)  
 
@@ -22,7 +22,7 @@ Run the app
 
 You shoud find your text files in the '''out/''' folder
 
-![screenshot](./images/ScreenShot-2.png)
+![screenshot](./images/screenShot-2.png)
 
 ## Supported languages
 English (en), Spanish (es), Frensh (fr), Arabic (ar), German (de), Chinese simple (zh), Italian (it), Japanese (ja), Portuguese (pt), Russian (ru), Turkish (tr), Korean (ko).
