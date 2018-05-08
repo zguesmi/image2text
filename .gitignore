@@ -27,11 +27,9 @@ node_modules
 # Optional REPL history
 .node_repl_history
 
-__pycache__
 
 # local data
-app/data
-data
-res
-iexec
-trash
+DATADIR
+
+.DS_Store
+__pycache__

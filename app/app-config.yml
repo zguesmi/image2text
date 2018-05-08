@@ -1,4 +1,4 @@
-datadir: /iexec
+datadir: ../DATADIR
 input-config: input.config
 input-dir: in
 output-dir: out
