@@ -4,21 +4,22 @@
 
 
 ## Description
-This dapp applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) on images and extracts text from them.
-<img src="./images/img.png" width="400"> <img src="./images/text.png" width="400">
+This dapp applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) on images and extracts text from them.  
+
+<img src="./images/img.png" width="400"> <img src="./images/text.png" width="350">
 
 
 ## Usage
-* Put your images in a directory (we'll call it DATADIR) and add your ```input.config``` file to define language for each image. Your ```input.config```
+Put your images in a directory (we'll call it DATADIR) and add your ```input.config``` file to define language for each image. Your ```input.config```
 file should respect the ```<imagename>:<lang>``` format.
 
 ![screenshot](./images/screenshot-1.png)
 
-* Change datadir name in app-config.yml to the name of your folder (DATADIR for our example) and run the script.
+Change datadir name in app-config.yml to the name of your folder (DATADIR for our example) and run the script.
 
     ```# python3 app.py```
 
-* You shoud find your text files in the ```DATADIR/out/``` folder
+You shoud find your text files in the ```DATADIR/out/``` folder
 
 ![screenshot](./images/screenshot-2.png)
 
@@ -39,12 +40,12 @@ Those extensions were not tested so they may not work properly: **pbm**, **pgm**
 
 ## Docker installation
 
-- Install [docker](https://docs.docker.com/install/)
+Install [docker](https://docs.docker.com/install/)
 
-- Prepare your datadir folder and grab the image from dockerhub
+Prepare your datadir folder and grab the image from dockerhub
 ```$ docker run -v path/to/images/dir:/iexec/ ziedguesmi/ocr python app.py```
 
-- Or you can build the image from dockerfile
+Or you can build the image from dockerfile
     ```
     # clone the dapp
     $ git clone https://github.com/Zied-Guesmi/ocr-dapp.git
