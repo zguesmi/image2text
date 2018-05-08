@@ -5,13 +5,13 @@
 
 ## Description
 This dapp applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) on images and extracts text from them.
-![img](./images/img.png) ![text](./images/text.png)
+<img src="./images/img.png" width="48"> <img src="./images/text.png" width="48">
 
 ## Usage
 Put your images in a directory (we'll call it DATADIR) and add your input.config file to define language for each image. Your '''input.config'''
 file should respect this format: '''<imagename>:<lang>'''
 
-![screenshot](./images/screenShot-1.png)
+![screenshot](./images/screenshot-1.png)
 
 Change datadir name in app-config.yml to the name of your folder (DATADIR for our example)  
 
@@ -22,7 +22,7 @@ Run the app
 
 You shoud find your text files in the '''out/''' folder
 
-![screenshot](./images/screenShot-2.png)
+![screenshot](./images/screenshot-2.png)
 
 ## Supported languages
 English (en), Spanish (es), Frensh (fr), Arabic (ar), German (de), Chinese simple (zh), Italian (it), Japanese (ja), Portuguese (pt), Russian (ru), Turkish (tr), Korean (ko).
