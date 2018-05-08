@@ -1,11 +1,11 @@
 # OCR-Dapp
 
-![dapp logo](./images/logo.png)
+<img src="./images/logo.png" width="400">
 
 
 ## Description
 This dapp applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) on images and extracts text from them.
-<img src="./images/img.png" width="150"> <img src="./images/text.png" width="150">
+<img src="./images/img.png" width="400"> <img src="./images/text.png" width="400">
 
 
 ## Usage
@@ -14,11 +14,9 @@ file should respect the ```<imagename>:<lang>``` format.
 
 ![screenshot](./images/screenshot-1.png)
 
-* Change datadir name in app-config.yml to the name of your folder (DATADIR for our example)  
+* Change datadir name in app-config.yml to the name of your folder (DATADIR for our example) and run the script.
 
-* Run the script
-
-    # python3 app.py
+    ```# python3 app.py```
 
 * You shoud find your text files in the ```DATADIR/out/``` folder
 
@@ -41,18 +39,13 @@ Those extensions were not tested so they may not work properly: **pbm**, **pgm**
 
 ## Docker installation
 
-* Install [docker](https://docs.docker.com/install/)
+- Install [docker](https://docs.docker.com/install/)
 
-* Prepare your datadir folder and grab the image from dockerhub
+- Prepare your datadir folder and grab the image from dockerhub
+```$ docker run -v path/to/images/dir:/iexec/ ziedguesmi/ocr python app.py```
 
-    $ docker run -v path/to/images/dir:/iexec/ ziedguesmi/ocr python app.py
-
-    $ ______ in/
-        |___ out/
-        |___ input.config
-
-* Or you can build the image from dockerfile
-
+- Or you can build the image from dockerfile
+    ```
     # clone the dapp
     $ git clone https://github.com/Zied-Guesmi/ocr-dapp.git
 
@@ -61,7 +54,7 @@ Those extensions were not tested so they may not work properly: **pbm**, **pgm**
 
     # run the docker container
     $ docker run -v path/to/images/dir:/iexec/ ocr-dapp python3 app.py
-
+    ```
 
 ## Installation
 Install system dependencies:
