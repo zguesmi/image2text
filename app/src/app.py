@@ -9,12 +9,13 @@ from ocr import OCR
 
 class App:
 
+    APP_CONFIG = '../app-config.yml'
     _SUPPORTED_IMAGES = ['pbm', 'pgm', 'ppm', 'tiff', 'rast', 'xbm', 'jpeg', 'bmp', 'png']
 
 
     def __init__(self):
-        
-        yml = yaml.load(open('app-config.yml'))
+
+        yml = yaml.load(open(self.APP_CONFIG))
 
         self._datadir = '{}/'.format( yml['datadir'] )
         self._inputConfigFile = '{}/{}'.format( yml['datadir'], yml['input-config'] )
@@ -101,9 +102,6 @@ class App:
 
 
 if __name__ == '__main__':
-    App().main()
-    Consensus().create()
-
-
-
-# TODO empty line
+    app = App()
+    app.main()
+    Consensus(app.APP_CONFIG).create()

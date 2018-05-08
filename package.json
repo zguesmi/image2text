@@ -1,7 +1,7 @@
 {
   "name": "ocr-dapp",
   "version": "1.0.0",
-  "description": "This dapp applies OCR on a given image and extracts text from it",
+  "description": "This dapp applies OCR on a given set of images and extracts text from them",
   "main": "iexec.js",
   "repository": {
     "type": "git",

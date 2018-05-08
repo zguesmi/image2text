@@ -2,9 +2,9 @@ module.exports = {
   name: 'ocr-dapp',
   app: {
     type: 'DOCKER',
-    envvars: 'XWDOCKERIMAGE=docker-image-name',
+    envvars: 'XWDOCKERIMAGE=ziedguesmi/ocr',
   },
   work: {
-    cmdline: 'cli arguments',
+    cmdline: 'python3 app.py',
   }
 };
