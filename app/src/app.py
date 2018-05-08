@@ -22,9 +22,11 @@ class App:
         self._in = '{}/{}/'.format( yml['datadir'], yml['input-dir'] )
         self._out = '{}/{}/'.format( yml['datadir'], yml['output-dir'] )
         self._outputFileExtension = yml['output-files-extension']
-        self._inputConfig = []
+        self._inputConfig = self.parseConfigFile()
 
-        self.parseConfigFile()
+        print(self._inputConfig)
+        sys.exit('you told me that')
+
         self.prepareDatadir()
 
 
@@ -47,16 +49,22 @@ class App:
         if not os.path.isfile(self._inputConfigFile):
             raise exc.NoConfigFileError
 
-        f = open(self._inputConfigFile)
-        for line in f:
-            try:
-                conf = list(map(str.strip, line.split(':')))
-            except Exception:
-                raise exc.UnrespectedConfigFormatError
-            if(len(conf) != 2):
-                raise exc.UnrespectedConfigFormatError
+        try:
+            return yaml.load(open(self._inputConfigFile))
+        except Exception:
+            raise exc.UnrespectedConfigFormatError
 
-            self._inputConfig.append(conf)
+
+        # f = open(self._inputConfigFile)
+        # for line in f:
+        #     try:
+        #         conf = list(map(str.strip, line.split(':')))
+        #     except Exception:
+        #         raise exc.UnrespectedConfigFormatError
+        #     if(len(conf) != 2):
+        #         raise exc.UnrespectedConfigFormatError
+
+        #     self._inputConfig.append(conf)
 
 
     def prepareDatadir(self):

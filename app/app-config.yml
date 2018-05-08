@@ -1,5 +1,5 @@
 datadir: /iexec
-input-config: input.config
+input-config: input-config.yml
 input-dir: in
 output-dir: out
 output-files-extension: txt

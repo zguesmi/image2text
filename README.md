@@ -1,17 +1,15 @@
-# OCR-Dapp
 
 <img src="./logo.png" width="400">
 
 
 ## Description
-This dapp applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) on images and extracts text from them.  
+Ocr-dapp is an Ethereum ready dapp that applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) to extract text from images.  
 
-<img src="./images/img.png" width="425" height="410"> <img src="./images/text.png" width="425">
+![demo](./images/demo.png)
 
 
 ## Usage
-Put your images in a directory (we'll call it DATADIR) and add your ```input.config``` file to define language for each image. Your ```input.config```
-file should respect the ```<imagename>:<lang>``` format.
+Put your images and your ```input-config.yml``` file in a folder (exp: DATADIR).The ```input-config.yml``` file defines language for each image and it should respect the ```<imagename>: <lang>``` format.
 
 ![screenshot](./images/screenshot-1.png)
 

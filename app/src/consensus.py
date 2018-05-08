@@ -22,6 +22,7 @@ class Consensus:
 
             path = self.fullPath(filename)
             filehash = hashFile(path)
+            
             try:
                 consensus.write('{}\n'.format(filehash))
             except Exception:
