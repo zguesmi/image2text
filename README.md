@@ -31,6 +31,7 @@ English (**en**), Spanish (**es**), Frensh (**fr**), Arabic (**ar**), German (**
 Tested extensions: **jpeg**, **bmp**, **png**  
 Those extensions are accepted but were not tested yet: **pbm**, **pgm**, **ppm**, **tiff**, **rast**, **xbm**  
 
+
 ## Dependencies
 [python3](https://www.python.org/)  
 [tesseract-ocr](https://github.com/tesseract-ocr/tesseract)  

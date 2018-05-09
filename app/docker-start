@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cd /ocr/src/
+cd /image-to-text/src/
 python3 app.py
