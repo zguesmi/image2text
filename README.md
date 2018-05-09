@@ -3,21 +3,22 @@
 
 
 ## Description
-Ocr-dapp is an Ethereum ready dapp that applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) to extract text from images.  
+OCR-Dapp is an Ethereum ready dapp that applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) to extract text from images.  
 
 ![demo](./images/demo.png)
 
 
 ## Usage
-Put your images and your ```input-config.yml``` file in a folder (exp: DATADIR).The ```input-config.yml``` file defines language for each image and it should respect the ```<imagename>: <lang>``` format.
+Bring your images together in a folder (exp: DATADIR) and add an ```input-config.yml``` file in the same folder. This file defines text's language for each image and it should respect the ```<imagename>: <lang>``` format. You can keep the language's section empty but this may affect the performance of the extraction process.
 
 ![screenshot](./images/screenshot-1.png)
 
-Change datadir name in app-config.yml to the name of your folder (DATADIR for our example) and run the script.
+In the ```app-config.yml``` file, change the datadir parameter to the path of your folder (DATADIR for our example) and run the script.
 
+    $ cd ocr-dapp/app/src/
     $ python3 app.py
 
-You shoud find your text files in the ```DATADIR/out/``` folder
+You shoud find your extracted text files in the ```DATADIR/out/``` folder.
 
 ![screenshot](./images/screenshot-2.png)
 
@@ -40,29 +41,34 @@ Those extensions were not tested so they may not work properly: **pbm**, **pgm**
 
 Install [docker](https://docs.docker.com/install/)
 
-Prepare your datadir folder and grab the image from dockerhub
+Prepare your DATADIR folder and grab the docker image from dockerhub
 
-    $ docker run -v path/to/images/dir:/iexec/ ziedguesmi/ocr python app.py
+    $ docker run -v path/to/datadir:/iexec/ ziedguesmi/ocr python3 app.py
 
-Or you can build the image from dockerfile
+Or you can build your own image from dockerfile
 
     # clone the dapp
     $ git clone https://github.com/Zied-Guesmi/ocr-dapp.git && cd ocr-dapp/ 
 
     # build the docker image
-    $ docker build -t ocr-dapp .
+    $ docker build -t ocr-dapp-docker-img .
 
     # run the container
-    $ docker run -v path/to/images/dir:/iexec/ ocr-dapp python3 app.py
+    $ docker run -v path/to/datadir:/iexec/ ocr-dapp-docker-img python3 app.py
 
 
 ## Installation
+Clone the app:
+
+    $ git clone https://github.com/Zied-Guesmi/ocr-dapp.git
+
 Install system dependencies:
 
     $ apt-get update && apt-get install -y \
+        libtesseract-dev \
+        libsm6 \
         python3 \
         python3-pip \
-        libtesseract-dev \
         tesseract-ocr \
         tesseract-ocr-ara \
         tesseract-ocr-eng \
@@ -79,5 +85,5 @@ Install system dependencies:
         
 Install python depedencies:
 
-    $ git clone https://github.com/Zied-Guesmi/ocr-dapp.git && cd ocr-dapp/app/
+    $ cd ocr-dapp/app/
     $ pip3 install -r requirements.txt

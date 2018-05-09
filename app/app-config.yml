@@ -1,6 +1,12 @@
+
+# your images folder name here
 datadir: /iexec
-input-config: input-config.yml
-input-dir: in
-output-dir: out
-output-files-extension: txt
-consensus-file: consensus.iexec
+
+
+# Do not edit this section, it's used by the app
+
+input-config: input-config.yml    # contains names of images and text's language
+input-dir: in                     # after the execution, input images will be moved to this folder
+output-dir: out                   # output dir
+output-files-extension: txt       # extension of text files
+consensus-file: consensus.iexec   # contains hashes of text files, used by iexec's PoCo protocol
