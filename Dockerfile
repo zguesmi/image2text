@@ -26,10 +26,10 @@ RUN apt-get update && apt-get install -y \
 
 RUN mkdir /iexec
 
-COPY ./app /text-to-speech
+COPY ./app /image-to-text
 
-WORKDIR /text-to-speech
+WORKDIR /image-to-text
 
 RUN pip3 install -r requirements.txt
 
-ENTRYPOINT [ "/text-to-speech/docker-start" ]
+ENTRYPOINT [ "/image-to-text/docker-start" ]
