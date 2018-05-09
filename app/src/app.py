@@ -69,7 +69,7 @@ class App:
             os.mkdir(self._in)
 
             for f in [ f for f in os.listdir(self._datadir) if self.isSupportedImage(f) ]:
-                call([ 'mv', self.fullPath(f), self._in ])
+                subprocess.call([ 'mv', self.fullPath(f), self._in ])
 
             os.mkdir(self._out)
 
