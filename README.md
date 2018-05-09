@@ -3,7 +3,7 @@
 
 
 ## Description
-OCR-Dapp is an Ethereum ready dapp that applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) to extract text from images.  
+Image-To-Text is an Ethereum ready dapp that applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) to extract text from images.  
 
 ![demo](./images/demo.png)
 
@@ -15,7 +15,7 @@ Bring your images together in a folder (exp: DATADIR) and add an ```input-config
 
 In the ```app/app-config.yml``` file, change the datadir parameter to the path of your folder (DATADIR for our example) and run the script.
 
-    $ cd ocr-dapp/app/src/
+    $ cd image-to-text/app/src/
     $ python3 app.py
 
 You shoud find your extracted text files in the ```DATADIR/out/``` folder.
@@ -45,7 +45,7 @@ After installing [docker](https://docs.docker.com/install/) and preparing your D
 Or you can build your own image from dockerfile:
 
     # clone the dapp
-    $ git clone https://github.com/Zied-Guesmi/ocr-dapp.git && cd ocr-dapp/ 
+    $ git clone https://github.com/Zied-Guesmi/image-to-text.git && cd image-to-text/ 
 
     # build the docker image
     $ docker build -t ocr .
@@ -57,7 +57,7 @@ Or you can build your own image from dockerfile:
 ## Installation
 Clone the app:
 
-    $ git clone https://github.com/Zied-Guesmi/ocr-dapp.git
+    $ git clone https://github.com/Zied-Guesmi/image-to-text.git
 
 Install system dependencies:
 
@@ -83,5 +83,5 @@ Install system dependencies:
 
 Install python depedencies:
 
-    $ cd ocr-dapp/app/
+    $ cd image-to-text/app/
     $ pip3 install -r requirements.txt

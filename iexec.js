@@ -1,10 +1,11 @@
 module.exports = {
-  name: 'ocr-dapp',
+  name: 'Text-To-Speech',
   app: {
     type: 'DOCKER',
     envvars: 'XWDOCKERIMAGE=ziedguesmi/ocr',
   },
   work: {
-    cmdline: 'python3 app.py',
+    cmdline: '',
+    dirinuri: '',
   }
 };
