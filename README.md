@@ -38,14 +38,11 @@ Those extensions are accepted but were not tested yet: **pbm**, **pgm**, **ppm**
 
 
 ## Docker installation
-
-Install [docker](https://docs.docker.com/install/)
-
-Prepare your DATADIR folder and grab the docker image from dockerhub
+After installing [docker](https://docs.docker.com/install/) and preparing your DATADIR folder, just grab the image from dockerhub and run it:
 
     $ docker run -v path/to/datadir:/iexec/ ziedguesmi/ocr
 
-Or you can build your own image from dockerfile
+Or you can build your own image from dockerfile:
 
     # clone the dapp
     $ git clone https://github.com/Zied-Guesmi/ocr-dapp.git && cd ocr-dapp/ 
