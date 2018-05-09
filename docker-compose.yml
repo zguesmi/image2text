@@ -1,9 +1,0 @@
-version: '3'
-
-services:  
-  ocr-dapp:
-    build: '.'
-    image: ziedguesmi/ocr
-    volumes:
-      - $(pwd)/:/iexec
-    command: python3 app.py

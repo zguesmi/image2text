@@ -17,54 +17,51 @@ class App:
 
         yml = yaml.load(open(self.APP_CONFIG))
 
-        self._datadir = '{}/'.format( yml['datadir'] )
-        self._inputConfigFile = '{}/{}'.format( yml['datadir'], yml['input-config'] )
-        self._in = '{}/{}/'.format( yml['datadir'], yml['input-dir'] )
-        self._out = '{}/{}/'.format( yml['datadir'], yml['output-dir'] )
+        self._datadir = yml['datadir']
+        self._inputConfigFile = yml['input-config']
+        self._inputConfigFilePath = '{}/{}'.format( yml['datadir'], yml['input-config'] )
+        self._in = '{}/{}'.format( yml['datadir'], yml['input-dir'] )
+        self._out = '{}/{}'.format( yml['datadir'], yml['output-dir'] )
         self._outputFileExtension = yml['output-files-extension']
         self._inputConfig = self.parseConfigFile()
 
-        print(self._inputConfig)
-        sys.exit('you told me that')
+        # print(self._inputConfig)
+        # sys.exit('you told me that')
 
         self.prepareDatadir()
 
 
     def fullPath(self, filename):
-        return '{}{}'.format(self._datadir, filename)
+        return '{}/{}'.format( self._datadir, filename )
+
+
+    def inFullPath(self, filename):
+        return '{}/{}'.format( self._in, filename )
+
+
+    def outFullPath(self, filename):
+        return '{}/{}.{}'.format( self._out, filename, self._outputFileExtension )
 
 
     def isNotConfigFile(self, filename):
-        return self.fullPath(filename) != self._inputConfigFile
+        return self.fullPath(filename) != self._inputConfigFilePath
 
 
     def isSupportedImage(self, filename):
         return ( os.path.isfile(self.fullPath(filename))
-            and self.isNotConfigFile(filename)
-            and imghdr.what( self.fullPath(filename) ) in self._SUPPORTED_IMAGES )
+            and imghdr.what( self.fullPath(filename) ) in self._SUPPORTED_IMAGES
+            and self.isNotConfigFile(filename) )
 
 
     def parseConfigFile(self):
 
-        if not os.path.isfile(self._inputConfigFile):
-            raise exc.NoConfigFileError
+        if not os.path.isfile(self._inputConfigFilePath):
+            raise exc.ConfigFileNotFoundError(self._inputConfigFile)
 
         try:
-            return yaml.load(open(self._inputConfigFile))
-        except Exception:
-            raise exc.UnrespectedConfigFormatError
-
-
-        # f = open(self._inputConfigFile)
-        # for line in f:
-        #     try:
-        #         conf = list(map(str.strip, line.split(':')))
-        #     except Exception:
-        #         raise exc.UnrespectedConfigFormatError
-        #     if(len(conf) != 2):
-        #         raise exc.UnrespectedConfigFormatError
-
-        #     self._inputConfig.append(conf)
+            return yaml.load(open(self._inputConfigFilePath))
+        except Exception as e:
+            raise exc.UnrespectedConfigFormatError(e)
 
 
     def prepareDatadir(self):
@@ -77,33 +74,33 @@ class App:
 
             os.mkdir(self._out)
 
-        except Exception:
-            raise exc.FatalError
+        except Exception as e:
+            raise exc.FatalError(e)
 
 
     def save(self, filename, text):
 
         try:
-            path = '{}{}.{}'.format( self._out, filename, self._outputFileExtension )
+            path = self.outFullPath(filename)
             fp = open(path, 'wb')
             fp.write(text)
-        except Exception:
-            raise exc.CanNotSaveTextError()
+        except Exception as e:
+            raise exc.CanNotSaveTextError(e, path)
         finally:
             fp.close()
 
 
     def main(self):
 
-        for conf in self._inputConfig:
+        for img, lang in self._inputConfig.items():
+            
+            path = self.inFullPath(img)
             try:
+                if not os.path.isfile(path):
+                    raise exc.FileNotFoundError(img)
 
-                if not os.path.isfile('{}{}'.format(self._in, conf[0])):
-                    raise exc.FileNotFoundError(conf[0])
-
-                path = '{}{}'.format(self._in, conf[0])
-                text = OCR().imageToString(path=path, lang=conf[1])
-                self.save(filename=conf[0], text=text)
+                text = OCR().imageToString(path=path, lang=lang)
+                self.save(filename=img, text=text)
 
             except Exception as e:
                 print(e)

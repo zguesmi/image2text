@@ -13,7 +13,7 @@ Bring your images together in a folder (exp: DATADIR) and add an ```input-config
 
 ![screenshot](./images/screenshot-1.png)
 
-In the ```app-config.yml``` file, change the datadir parameter to the path of your folder (DATADIR for our example) and run the script.
+In the ```app/app-config.yml``` file, change the datadir parameter to the path of your folder (DATADIR for our example) and run the script.
 
     $ cd ocr-dapp/app/src/
     $ python3 app.py
@@ -29,7 +29,7 @@ English (**en**), Spanish (**es**), Frensh (**fr**), Arabic (**ar**), German (**
 
 ## Supported image types
 Tested extensions: **jpeg**, **bmp**, **png**  
-Those extensions were not tested so they may not work properly: **pbm**, **pgm**, **ppm**, **tiff**, **rast**, **xbm**  
+Those extensions are accepted but were not tested yet: **pbm**, **pgm**, **ppm**, **tiff**, **rast**, **xbm**  
 
 ## Dependencies
 [python3](https://www.python.org/)  
@@ -43,7 +43,7 @@ Install [docker](https://docs.docker.com/install/)
 
 Prepare your DATADIR folder and grab the docker image from dockerhub
 
-    $ docker run -v path/to/datadir:/iexec/ ziedguesmi/ocr python3 app.py
+    $ docker run -v path/to/datadir:/iexec/ ziedguesmi/ocr
 
 Or you can build your own image from dockerfile
 
@@ -51,10 +51,10 @@ Or you can build your own image from dockerfile
     $ git clone https://github.com/Zied-Guesmi/ocr-dapp.git && cd ocr-dapp/ 
 
     # build the docker image
-    $ docker build -t ocr-dapp-docker-img .
+    $ docker build -t ocr .
 
     # run the container
-    $ docker run -v path/to/datadir:/iexec/ ocr-dapp-docker-img python3 app.py
+    $ docker run -v path/to/datadir:/iexec/ ocr
 
 
 ## Installation
@@ -64,6 +64,7 @@ Clone the app:
 
 Install system dependencies:
 
+    # ubuntu as an example
     $ apt-get update && apt-get install -y \
         libtesseract-dev \
         libsm6 \
@@ -82,7 +83,7 @@ Install system dependencies:
         tesseract-ocr-rus \
         tesseract-ocr-tur \
         tesseract-ocr-kor
-        
+
 Install python depedencies:
 
     $ cd ocr-dapp/app/

@@ -33,3 +33,4 @@ DATADIR
 
 .DS_Store
 __pycache__
+datadir.sh

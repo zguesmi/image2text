@@ -32,4 +32,4 @@ WORKDIR /ocr
 
 RUN pip3 install -r requirements.txt
 
-WORKDIR /ocr/src
+ENTRYPOINT [ "/ocr/docker-start" ]

@@ -1,28 +1,26 @@
-import sys
+import sys, yaml
 
 
 class FatalError(Exception):
-
-    message = 'Something went wrong ! Please Try Again'
 
     def __init__(self, message):
         sys.exit(message)
 
 
-class NoConfigFileError(FatalError):
+class ConfigFileNotFoundError(FatalError):
 
-    message = 'No config file found - config.txt'
+    message = 'Input config file not found - {}'
 
-    def __init__(self):
-        super().__init__(self.message)
+    def __init__(self, filename):
+        super().__init__(self.message.format(filename))
 
 
 class UnrespectedConfigFormatError(FatalError):
 
-    message = 'Can not parse config file - required format is name:lang'
+    message = 'Error parsing input config file - required format is name:lang\n{}'
 
-    def __init__(self):
-        super().__init__(self.message)
+    def __init__(self, err):
+        super().__init__(self.message.format(err))
 
 
 class CustomError(Exception):
@@ -49,15 +47,23 @@ class UnsupportedLanguageError(CustomError):
 
 class CanNotExtractTextError(CustomError):
 
-    message = 'Can not extract text from image'
+    message = 'Error extracting text from image - {}\n{}'
 
-    def __init__(self):
-        super().__init__(self.message)
+    def __init__(self, err, filename):
+        super().__init__(self.message.format(filename, err))
 
 
 class CanNotSaveTextError(CustomError):
 
-    message = 'Can not write text to file'
+    message = 'Error writing text to file - {}\n{}'
 
-    def __init__(self):
-        super().__init__(self.message)
+    def __init__(self, err, filename):
+        super().__init__(self.message.format(filename, err))
+
+
+class CanNotCreateConsensusFile(FatalError):
+
+    message = 'Error creating consensus file - {}\n{}'
+
+    def __init__(self, err, filename):
+        super().__init__(self.message.format(filename, err))

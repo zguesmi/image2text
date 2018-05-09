@@ -6,6 +6,7 @@ import exceptions as exc
 class OCR:
 
     LANGUAGES = {
+        None: None,
         'en': 'eng',        # english
         'fr': 'fra',        # frensh
         'es': 'spa',        # Spanish
@@ -45,6 +46,6 @@ class OCR:
             return pytesseract.image_to_string(image, lang=self._matchLanguage(lang)).encode()
         except exc.UnsupportedLanguageError:
             raise
-        else:
-            raise exc.CanNotExtractTextError()
+        except Exception as e:
+            raise exc.CanNotExtractTextError(e, path)
 

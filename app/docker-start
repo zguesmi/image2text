@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /ocr/src/
+python3 app.py

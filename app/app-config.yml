@@ -1,4 +1,6 @@
 
+### DON'T add trailing slashes in dir names
+
 # your images folder name here
 datadir: /iexec
 
