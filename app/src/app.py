@@ -1,5 +1,4 @@
-import argparse, os, sys, subprocess, imghdr, yaml
-from subprocess import call
+import os, sys, subprocess, imghdr, yaml
 
 import exceptions as exc
 from consensus import Consensus
