@@ -40,7 +40,7 @@ Those extensions are accepted but were not tested yet: **pbm**, **pgm**, **ppm**
 ## Docker installation
 After installing [docker](https://docs.docker.com/install/) and preparing your DATADIR folder, just grab the image from dockerhub and run it:
 
-    $ docker run -v path/to/datadir:/iexec/ ziedguesmi/ocr
+    $ docker run -v path/to/datadir:/iexec/ ziedguesmi/image-to-text
 
 Or you can build your own image from dockerfile:
 
@@ -48,10 +48,10 @@ Or you can build your own image from dockerfile:
     $ git clone https://github.com/Zied-Guesmi/image-to-text.git && cd image-to-text/ 
 
     # build the docker image
-    $ docker build -t ocr .
+    $ docker build -t image-to-text .
 
     # run the container
-    $ docker run -v path/to/datadir:/iexec/ ocr
+    $ docker run -v path/to/datadir:/iexec/ image-to-text
 
 
 ## Installation
