@@ -37,6 +37,14 @@ class FileNotFoundError(CustomError):
         super().__init__(self.message.format(filename))
 
 
+class FileTypeNotSupportedError(CustomError):
+
+    message = 'File type not supported - {}'
+
+    def __init__(self, filename):
+        super().__init__(self.message.format(filename))
+
+
 class UnsupportedLanguageError(CustomError):
 
     message = 'Unsupported language - "{}"'

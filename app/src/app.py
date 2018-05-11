@@ -9,7 +9,11 @@ from ocr import OCR
 class App:
 
     APP_CONFIG_FILE = '../app-config.yml'
-    _SUPPORTED_IMAGES = ['pbm', 'pgm', 'ppm', 'tiff', 'rast', 'xbm', 'jpeg', 'bmp', 'png', 'gif']
+    _SUPPORTED_IMAGES = [ 'pbm', 'pgm', 'ppm', 'tiff', 'rast', 'xbm', 'jpeg', 'bmp', 'png' ]
+
+    _taskStartedFlag = '-> processing file {}'
+    _taskEndedFlag = 'done..'
+    _executionEndedFlag = 'Supported images have been moved to "{}" folder. Text files have been saved in "{}" folder.'
 
 
     def __init__(self):
@@ -17,11 +21,12 @@ class App:
         yml = yaml.load(open(self.APP_CONFIG_FILE))
 
         self._datadir = yml['datadir']
-        self._inputConfigFile = yml['input-config']
-        self._inputConfigFilePath = '{}/{}'.format( yml['datadir'], yml['input-config'] )
+        self._inputConfigFile = '{}/{}'.format( yml['datadir'], yml['input-config'] )
         self._in = '{}/{}'.format( yml['datadir'], yml['input-dir'] )
         self._out = '{}/{}'.format( yml['datadir'], yml['output-dir'] )
         self._outputFileExtension = yml['output-files-extension']
+        self._executionEndedFlag = self._executionEndedFlag.format( yml['input-dir'], yml['output-dir'] )
+
         self._inputConfig = self.parseConfigFile()
 
         self.prepareDatadir()
@@ -40,7 +45,7 @@ class App:
 
 
     def isNotConfigFile(self, filename):
-        return self.fullPath(filename) != self._inputConfigFilePath
+        return self.fullPath(filename) != self._inputConfigFile
 
 
     def isSupportedImage(self, filename):
@@ -51,11 +56,11 @@ class App:
 
     def parseConfigFile(self):
 
-        if not os.path.isfile(self._inputConfigFilePath):
+        if not os.path.isfile(self._inputConfigFile):
             raise exc.ConfigFileNotFoundError(self._inputConfigFile)
 
         try:
-            return yaml.load(open(self._inputConfigFilePath))
+            return yaml.load(open(self._inputConfigFile))
         except Exception as e:
             raise exc.UnrespectedConfigFormatError(e)
 
@@ -89,18 +94,30 @@ class App:
     def main(self):
 
         for img, lang in self._inputConfig.items():
-            
-            path = self.inFullPath(img)
-            try:
-                if not os.path.isfile(path):
-                    raise exc.FileNotFoundError(img)
 
+            try:
+
+                print(self._taskStartedFlag.format(img))
+                path = self.inFullPath(img)
+
+                if not os.path.isfile(path):
+
+                    if os.path.isfile(self.fullPath(img)):
+                        raise exc.FileTypeNotSupportedError(img)
+
+                    raise exc.FileNotFoundError(img)
+                
                 text = OCR().imageToString(path=path, lang=lang)
                 self.save(filename=img, text=text)
+                
+                print(self._taskEndedFlag)
 
+            except exc.CustomError:
+                pass
             except Exception as e:
                 print(e)
 
+        print(self._executionEndedFlag)
 
 if __name__ == '__main__':
     app = App()
