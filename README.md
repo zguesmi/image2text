@@ -3,7 +3,7 @@
 
 
 ## Description
-Image-To-Text is an Ethereum ready dapp that applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) to extract text from images.  
+image2text is an Ethereum ready dapp that applies [tesseract-OCR](https://github.com/tesseract-ocr/tesseract) to extract text from images.  
 
 ![demo](./images/demo.png)
 
@@ -15,7 +15,7 @@ Bring your images together in a folder (exp: DATADIR) and add an ```input-config
 
 In the ```app/app-config.yml``` file, change the datadir parameter to the path of your folder (DATADIR for our example) and run the script.
 
-    $ cd image-to-text/app/src/
+    $ cd image2text/app/src/
     $ python3 app.py
 
 You shoud find your extracted text files in the ```DATADIR/out/``` folder.
@@ -24,11 +24,11 @@ You shoud find your extracted text files in the ```DATADIR/out/``` folder.
 
 
 ## Supported languages
-English (**en**), Spanish (**es**), Frensh (**fr**), Arabic (**ar**), German (**de**), Chinese simple (**zh**), Italian (**it**), Japanese (**ja**), Portuguese (**pt**), Russian (**ru**), Turkish (**tr**), Korean (**ko**).
+Arabic (**ar**), Chinese simple (**zh**), English (**en**), Spanish (**es**), Frensh (**fr**),  German (**de**),  Italian (**it**), Japanese (**ja**),Korean (**ko**), Portuguese (**pt**), Russian (**ru**), Turkish (**tr**).
 
 
 ## Supported image types
-Tested extensions: **jpeg**, **bmp**, **png**  
+Tested extensions: **jpeg**, **bmp**, **png**, **gif**  
 Those extensions are accepted but were not tested yet: **pbm**, **pgm**, **ppm**, **tiff**, **rast**, **xbm**  
 
 
@@ -41,24 +41,24 @@ Those extensions are accepted but were not tested yet: **pbm**, **pgm**, **ppm**
 ## Docker installation
 After installing [docker](https://docs.docker.com/install/) and preparing your DATADIR folder, just grab the image from dockerhub and run it:
 
-    $ docker run -v path/to/datadir:/iexec/ ziedguesmi/image-to-text
+    $ docker run -v path/to/datadir:/iexec/ ziedguesmi/image2text
 
 Or you can build your own image from dockerfile:
 
     # clone the dapp
-    $ git clone https://github.com/Zied-Guesmi/image-to-text.git && cd image-to-text/ 
+    $ git clone https://github.com/Zied-Guesmi/image2text.git && cd image2text/ 
 
     # build the docker image
-    $ docker build -t image-to-text .
+    $ docker build -t image2text .
 
     # run the container
-    $ docker run -v path/to/datadir:/iexec/ image-to-text
+    $ docker run -v path/to/datadir:/iexec/ image2text
 
 
 ## Installation
 Clone the app:
 
-    $ git clone https://github.com/Zied-Guesmi/image-to-text.git
+    $ git clone https://github.com/Zied-Guesmi/image2text.git
 
 Install system dependencies:
 
@@ -84,5 +84,5 @@ Install system dependencies:
 
 Install python depedencies:
 
-    $ cd image-to-text/app/
+    $ cd image2text/app/
     $ pip3 install -r requirements.txt

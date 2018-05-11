@@ -26,10 +26,10 @@ RUN apt-get update && apt-get install -y \
 
 RUN mkdir /iexec
 
-COPY ./app /image-to-text
+COPY ./app /image2text
 
-WORKDIR /image-to-text
+WORKDIR /image2text
 
 RUN pip3 install -r requirements.txt
 
-ENTRYPOINT [ "/image-to-text/docker-start" ]
+ENTRYPOINT [ "/image2text/docker-start" ]

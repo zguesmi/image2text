@@ -1,17 +1,17 @@
 {
-  "name": "ocr-dapp",
+  "name": "image2text",
   "version": "1.0.0",
-  "description": "This dapp applies OCR on a given set of images and extracts text from them",
+  "description": "image2text is an Ethereum ready dapp that applies google's tesseract-ocr to extract text from images.",
   "main": "iexec.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Zied-Guesmi/ocr-dapp.git"
+    "url": "git+https://github.com/Zied-Guesmi/image2text.git"
   },
   "author": {
     "name": "Zied Guesmi"
   },
   "license": "",
-  "homepage": "https://zied-guesmi.github.io/ocr-dapp/",
+  "homepage": "https://zied-guesmi.github.io/image2text/",
   "logo": "logo.png",
   "dependencies": {
     "iexec-oracle-contract": "1.1.7"

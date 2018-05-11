@@ -1,8 +1,8 @@
 module.exports = {
-  name: 'Text-To-Speech',
+  name: 'image2text',
   app: {
     type: 'DOCKER',
-    envvars: 'XWDOCKERIMAGE=ziedguesmi/ocr',
+    envvars: 'XWDOCKERIMAGE=ziedguesmi/image2text',
   },
   work: {
     cmdline: '',

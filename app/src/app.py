@@ -9,7 +9,7 @@ from ocr import OCR
 class App:
 
     APP_CONFIG_FILE = '../app-config.yml'
-    _SUPPORTED_IMAGES = ['pbm', 'pgm', 'ppm', 'tiff', 'rast', 'xbm', 'jpeg', 'bmp', 'png']
+    _SUPPORTED_IMAGES = ['pbm', 'pgm', 'ppm', 'tiff', 'rast', 'xbm', 'jpeg', 'bmp', 'png', 'gif']
 
 
     def __init__(self):

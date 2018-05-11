@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cd /image-to-text/src/
+cd /image2text/src/
 python3 app.py
