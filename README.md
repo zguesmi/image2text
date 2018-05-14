@@ -28,7 +28,7 @@ Arabic (**ar**), Chinese simple (**zh**), English (**en**), Spanish (**es**), Fr
 
 
 ## Supported image types
-Tested extensions: **jpeg**, **bmp**, **png**,  
+Tested extensions: **jpeg**, **bmp**, **png**  
 Those extensions are accepted but were not tested yet: **pbm**, **pgm**, **ppm**, **tiff**, **rast**, **xbm**  
 
 
