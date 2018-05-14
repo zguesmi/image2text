@@ -1,9 +1,13 @@
 import pytesseract, cv2
-import exceptions as exc
+import exceptions as customExceptions
 
 
 
 class OCR:
+
+    '''
+        this class uses tesseract ocr to extract text from a preprocessed image
+    '''
 
     LANGUAGES = {
         None: None,
@@ -45,8 +49,8 @@ class OCR:
             return pytesseract.image_to_string(image, lang=self._matchLanguage(lang)).encode()
 
         except KeyError:
-            raise exc.UnsupportedLanguageError(lang)
+            raise customExceptions.UnsupportedLanguageError(lang)
 
         except Exception as e:
-            raise exc.CanNotExtractTextError(e, path)
+            raise customExceptions.CanNotExtractTextError(e, path)
 

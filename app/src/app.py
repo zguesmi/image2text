@@ -1,6 +1,6 @@
 import os, sys, subprocess, imghdr, yaml
 
-import exceptions as exc
+import custom_exceptions as customExceptions
 from consensus import Consensus
 from ocr import OCR
 
@@ -8,12 +8,12 @@ from ocr import OCR
 
 class App:
 
-    APP_CONFIG_FILE = '../app-config.yml'
-    _SUPPORTED_IMAGES = [ 'pbm', 'pgm', 'ppm', 'tiff', 'rast', 'xbm', 'jpeg', 'bmp', 'png' ]
-
+    APP_CONFIG_FILE = '{}/../app-config.yml'.format(os.path.dirname(os.path.realpath(__file__)))
     _taskStartedFlag = '-> processing file {}'
     _taskEndedFlag = 'done..'
     _executionEndedFlag = 'Supported images have been moved to "{}" folder. Text files have been saved in "{}" folder.'
+
+    _SUPPORTED_IMAGES = [ 'pbm', 'pgm', 'ppm', 'tiff', 'rast', 'xbm', 'jpeg', 'bmp', 'png' ]
 
 
     def __init__(self):
@@ -57,12 +57,12 @@ class App:
     def parseConfigFile(self):
 
         if not os.path.isfile(self._inputConfigFile):
-            raise exc.ConfigFileNotFoundError(self._inputConfigFile)
+            raise customExceptions.ConfigFileNotFoundError(self._inputConfigFile)
 
         try:
             return yaml.load(open(self._inputConfigFile))
         except Exception as e:
-            raise exc.UnrespectedConfigFormatError(e)
+            raise customExceptions.UnrespectedConfigFormatError(e)
 
 
     def prepareDatadir(self):
@@ -76,7 +76,7 @@ class App:
             os.mkdir(self._out)
 
         except Exception as e:
-            raise exc.FatalError(e)
+            raise customExceptions.FatalError(e)
 
 
     def save(self, filename, text):
@@ -86,7 +86,7 @@ class App:
             fp = open(path, 'wb')
             fp.write(text)
         except Exception as e:
-            raise exc.CanNotSaveTextError(e, path)
+            raise customExceptions.CanNotSaveTextError(e, path)
         finally:
             fp.close()
 
@@ -103,21 +103,22 @@ class App:
                 if not os.path.isfile(path):
 
                     if os.path.isfile(self.fullPath(img)):
-                        raise exc.FileTypeNotSupportedError(img)
+                        raise customExceptions.FileTypeNotSupportedError(img)
 
-                    raise exc.FileNotFoundError(img)
+                    raise customExceptions.FileNotFoundError(img)
                 
                 text = OCR().imageToString(path=path, lang=lang)
                 self.save(filename=img, text=text)
                 
                 print(self._taskEndedFlag)
 
-            except exc.CustomError:
+            except customExceptions.CustomError:
                 pass
             except Exception as e:
                 print(e)
 
         print(self._executionEndedFlag)
+
 
 if __name__ == '__main__':
     app = App()

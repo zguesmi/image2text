@@ -1,8 +1,13 @@
 import os, sys, hashlib, yaml
-import exceptions as exc
+import custom_exceptions as customExceptions
 
 
 class Consensus:
+
+    '''
+        this class creates the consensus.iexec file used to verify the PoCo (proof of contribution).
+        this file contains hashes of every text file produced as output.
+    '''
 
 
     def __init__(self, appConfigFile):
@@ -30,7 +35,7 @@ class Consensus:
                 md5.update(buffer)
             return md5.hexdigest()
         except Exception as e:
-            raise exc.FatalError(e)
+            raise customExceptions.FatalError(e)
 
 
     def create(self):
@@ -45,6 +50,6 @@ class Consensus:
                 consensus.write('{}\n'.format(filehash))
 
         except Exception as e:
-            raise exc.FatalError(filename, e)
+            raise customExceptions.FatalError(e + ' - ' + filename)
         finally:
             consensus.close()
