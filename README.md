@@ -17,7 +17,7 @@ Bring your images together in a folder (exp: DATADIR) and add an ```input-config
 In the ```app/app-config.yml``` file, change the datadir parameter to the path of your folder (DATADIR for our example) and run the script.
 
     $ git clone https://github.com/Zied-Guesmi/image2text.git && cd image2text/
-    $ sed "s/\/iexec/ <path/to/datadir/folder> /" app/app-config.yml
+    $ sed -i "s/\/iexec/<path/to/datadir/folder>/" app/app-config.yml
     $ python3 app/src/app.py
 
 You shoud find your extracted text files in the ```DATADIR/out/``` folder.
@@ -97,9 +97,9 @@ Install python depedencies:
 
 ## Authors
 
-* **Zied Guesmi** - [Zied-Guesmi](https://github.com/Zied-Guesmi)
+**[Zied-Guesmi](https://github.com/Zied-Guesmi)**
 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Zied-Guesmi/text2speech/blob/master/LICENSE) file for details
