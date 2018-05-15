@@ -38,9 +38,9 @@ Those extensions are accepted but were not tested yet: **pbm**, **pgm**, **ppm**
 
 ## Dependencies
 
-[python3](https://www.python.org/)  
-[tesseract-ocr](https://github.com/tesseract-ocr/tesseract)  
-[opencv](https://opencv.org/)
+- [python3](https://www.python.org/)  
+- [tesseract-ocr](https://github.com/tesseract-ocr/tesseract)  
+- [opencv](https://opencv.org/)
 
 
 ## Docker installation
@@ -97,7 +97,7 @@ Install python depedencies:
 
 ## Authors
 
-**[Zied Guesmi](https://github.com/Zied-Guesmi)**
+- **[Zied Guesmi](https://github.com/Zied-Guesmi)**
 
 
 ## License
