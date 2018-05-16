@@ -6,6 +6,6 @@ module.exports = {
   },
   work: {
     cmdline: '',
-    dirinuri: '',
+    dirinuri: 'https://github.com/Zied-Guesmi/image2text/blob/master/DATADIR.zip?raw=true',
   }
 };

@@ -43,7 +43,7 @@ Those extensions are accepted but were not tested yet: **pbm**, **pgm**, **ppm**
 - [opencv](https://opencv.org/)
 
 
-## Docker installation
+## Docker deployment
 
 After installing [docker](https://docs.docker.com/install/) and preparing your DATADIR folder, just grab the docker image from dockerhub and run it:
 
@@ -91,8 +91,8 @@ Clone the app:
 
 Install python depedencies:
 
-    $ cd image2text/app/
-    $ pip3 install -r requirements.txt
+    $ cd image2text/
+    $ pip3 install -r app/requirements.txt
 
 
 ## Authors
