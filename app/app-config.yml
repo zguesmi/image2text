@@ -2,7 +2,7 @@
 ### DON'T add trailing slashes in dir names
 
 # your images folder absolute/relative (to the app.py script) path
-datadir: /iexec
+datadir: ../../DATADIR
 
 
 # If you're not sure do not edit this section, it's used by the app
@@ -10,5 +10,3 @@ datadir: /iexec
 input-config: input-config.yml    # contains image names and text's language
 input-dir: in                     # after the execution, input files will be moved to this folder
 output-dir: out                   # output dir
-output-files-extension: txt       # extension of text files
-consensus-file: consensus.iexec   # contains hashes of text files, used by iexec's PoCo protocol

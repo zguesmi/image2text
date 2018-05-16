@@ -1,4 +1,3 @@
 #!/bin/sh
 
-cd /image2text/src/
-python3 app.py
+python3 /image2text/src/app.py

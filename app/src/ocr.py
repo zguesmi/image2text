@@ -1,12 +1,12 @@
 import pytesseract, cv2
-import exceptions as customExceptions
+import custom_exceptions as customExceptions
 
 
 
 class OCR:
 
     '''
-        this class uses tesseract ocr to extract text from a preprocessed image
+        this class preprocesses and image and uses tesseract ocr to extract text it
     '''
 
     LANGUAGES = {

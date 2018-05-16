@@ -2,3 +2,4 @@ pytesseract
 opencv-python
 pillow
 PyYAML
+yamlordereddictloader
