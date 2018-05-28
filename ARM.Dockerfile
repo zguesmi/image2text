@@ -1,4 +1,4 @@
-FROM ziedguesmi/raspbian-opencv:1.0
+FROM ziedguesmi/opencv-raspbian:1.0
 
 LABEL maintainer="Zied Guesmi <guesmy.zied@gmail.com>"
 LABEL version="1.0"
