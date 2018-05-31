@@ -1,0 +1,18 @@
+{
+  "description": "image2text is an Ethereum ready dapp that applies google's tesseract-ocr to extract text from images.",
+  "license": "MIT",
+  "author": "Zied Guesmi",
+  "social": {
+    "website": "https://zied-guesmi.github.io/image2text/",
+    "github": "https://github.com/Zied-Guesmi/image2text.git"
+  },
+  "logo": "logo.png",
+  "app": {
+    "name": "image2text",
+    "price": 1,
+    "params": {
+      "type": "DOCKER",
+      "envvars": "XWDOCKERIMAGE=ziedguesmi/image2text"
+    }
+  }
+}
