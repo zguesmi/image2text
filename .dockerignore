@@ -1,1 +1,14 @@
 app/src/__pycache__
+DATADIR
+DATADIR.old
+DATADIR.zip
+LICENSE
+README.md
+_config.yml
+chain.json
+datadir.sh
+deployed.json
+iexec.json
+images
+logo.png
+wallet.json

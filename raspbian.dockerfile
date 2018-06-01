@@ -1,12 +1,11 @@
-FROM ziedguesmi/opencv-raspbian:1.0
+FROM ziedguesmi/opencv:3-raspbian
 
 LABEL maintainer="Zied Guesmi <guesmy.zied@gmail.com>"
 LABEL version="1.0"
 
 RUN [ "cross-build-start" ]
 
-RUN apt-get update && apt-get install -y \
-    --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
         libtesseract-dev \
         libsm6 \
         python3 \
@@ -25,16 +24,18 @@ RUN apt-get update && apt-get install -y \
         tesseract-ocr-tur \
         tesseract-ocr-kor \
         && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+    pip3 install -U pytesseract pillow PyYAML yamlordereddictloader  && \
+    apt-get remove -y python3-pip && \
+    apt-get autoremove -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN mkdir /iexec
+
+RUN [ "cross-build-end" ]
 
 COPY ./app /image2text
 
 WORKDIR /image2text
-
-RUN pip3 install pytesseract pillow PyYAML yamlordereddictloader
-
-RUN [ "cross-build-end" ]
 
 ENTRYPOINT [ "/image2text/docker-start" ]
