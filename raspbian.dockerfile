@@ -38,4 +38,4 @@ COPY ./app /image2text
 
 WORKDIR /image2text
 
-ENTRYPOINT [ "/image2text/docker-start" ]
+ENTRYPOINT [ "/image2text/entrypoint" ]
